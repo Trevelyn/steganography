@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<h2 align="center">Login </h2>
+ {% if form.errors %}
+    <p style="color: red">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-mini.css -->
+       
+
+
+        <div class="form-mini-container col-lg-offset-4" style="width:355px; ">
+
+
+           
+            <form class="form-mini" action='' method="post" >
+            {% csrf_token %}
+
+                <div class="form-row">
+                     <label>
+                            <span>Username</span>
+                           
+                        </label>
+                </div>
+                <div> {{ form.username }}</div><br>
+
+                <div class="form-row">
+                    <label>
+                            <span>Password</span>
+                            
+                        </label>
+                </div>
+<div>{{ form.password }}</div><br>
+                <div class="form-row form-last-row col-lg-offset-4">
+                    <button class="btn btn-info type="submit" >Login</button> <a href="{% url 'userauth:registerpage' %}" class="active">new to this site?sign up</a></li>
+
+            </form>
+
+             
+        </div>
+
+
+    </div>
+{% endblock %}
